@@ -1,0 +1,28 @@
+name: Deploy to SiteGround
+on:
+    push:
+        branches: [stg, main]
+
+concurrency:
+    group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+    cancel-in-progress: true
+# jobs:
+# deploy-prod:
+#     name: Deploy to Production
+#     if: github.ref == 'refs/heads/main'
+#     uses: macrosbysara/shared-github-actions/.github/workflows/deploy-theme.yml@main
+#     with:
+#         REMOTE: "macrosbysara.com" # Remote folder to deploy to
+#         theme_name: kjr-wp-theme
+#         flags: "-azr --delete"
+#     secrets: inherit
+
+# deploy-stg:
+#     name: Deploy to Staging
+#     if: github.ref == 'refs/heads/stg'
+#     uses: macrosbysara/shared-github-actions/.github/workflows/deploy-theme.yml@main
+#     with:
+#         REMOTE: staging6.macrosbysara.com
+#         theme_name: kjr-wp-theme
+#         flags: "-azvr --delete"
+#     secrets: inherit

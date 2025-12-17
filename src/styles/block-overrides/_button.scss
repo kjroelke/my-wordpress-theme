@@ -1,0 +1,18 @@
+@use "../abstracts/mixins" as m;
+@use "../abstracts/functions" as fn;
+
+.wp-block-button {
+	&__link {
+		border: 2px solid var(--wp--preset--color--primary);
+
+	}
+
+	&.is-style-outline &__link {
+		color: var(--wp--preset--color--primary);
+
+		@include m.interaction {
+			box-shadow: var(--btn-hover-box-shadow);
+			translate: var(--btn-hover-translate-x) var(--btn-hover-translate-y);
+		}
+	}
+}

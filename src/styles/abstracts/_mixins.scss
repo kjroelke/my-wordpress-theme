@@ -1,0 +1,9 @@
+@use "./functions" as fn;
+
+@mixin interaction() {
+	&:hover,
+	&:active,
+	&:focus {
+		@content;
+	}
+}

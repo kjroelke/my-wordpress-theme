@@ -1,0 +1,36 @@
+@use "../abstracts/mixins" as m;
+@use "../abstracts/functions" as fn;
+
+:root .wp-block-post-excerpt {
+	display: flex;
+	flex-direction: column;
+	gap: var(--wp--preset--spacing--base);
+
+	&__more-text {
+		margin-top: auto;
+		margin-bottom: 0;
+	}
+
+	&__more-link {
+		text-decoration: none;
+		padding: var(--wp--preset--spacing--base) var(--wp--preset--spacing--lg);
+		background-color: var(--wp--preset--color--primary);
+		border: 2px solid var(--wp--preset--color--primary);
+		font-size: var(--wp--preset--font-size--root);
+		color: white;
+		border-radius: 50rem;
+		transition: fn.transition(
+			color,
+			background-color,
+			box-shadow,
+			translate
+		);
+
+		@include m.interaction {
+			color: var(--wp--preset--color--primary);
+			background-color: white;
+			box-shadow: var(--btn-hover-box-shadow);
+			translate: var(--btn-hover-translate-x) var(--btn-hover-translate-y);
+		}
+	}
+}

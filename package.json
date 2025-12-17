@@ -1,25 +1,58 @@
 {
-	"name": "my-wordpress-theme",
-	"version": "2.0.1",
-	"description": "My custom wordpress theme for my personal site",
-	"main": "wp-content/themes/mytheme/src/index.js",
-	"prettier": "@wordpress/prettier-config",
-	"browserslist": [
-		"extends @wordpress/browserslist-config"
-	],
-	"scripts": {
-		"start": "wp-scripts start",
-		"build": "wp-scripts build",
-		"check-engines": "wp-scripts check-engines",
-		"packages-update": "wp-scripts packages-update"
+	"name": "kj-roelke-wp-theme",
+	"version": "2.0.0",
+	"description": "A WordPress theme for KJ Roelke",
+	"homepage": "https://github.com/kjroelke/my-wordpress-theme#readme",
+	"bugs": {
+		"url": "https://github.com/kjroelke/my-wordpress-theme/issues"
 	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/kjroelke/my-wordpress-theme.git"
+	},
+	"license": "GPL-2.0-or-later",
 	"author": "KJ Roelke",
-	"license": "ISC",
+	"prettier": "@wordpress/prettier-config",
+	"main": "src/index.ts",
+	"scripts": {
+		"build": "wp-scripts build --config webpack.config.cjs --blocks-manifest  --webpack-copy-php --source-path=./src/ --output-path=./build/",
+		"check-engines": "wp-scripts check-engines",
+		"packages-update": "wp-scripts packages-update",
+		"lint:css": "npx stylelint '**/*.scss' '**/*.css' --fix",
+		"lint:js": "npx eslint --fix",
+		"start": "wp-scripts start --config webpack.config.cjs --blocks-manifest --webpack-copy-php --source-path=./src/ --output-path=./build/"
+	},
+	"files": [
+		"assets/",
+		"build/",
+		"inc/",
+		"parts/",
+		"patterns/",
+		"templates/",
+		"functions.php",
+		"readme.md",
+		"screenshot.png",
+		"style.css",
+		"theme.json"
+	],
 	"dependencies": {
-		"@fortawesome/fontawesome-free": "^6.4.0",
-		"bootstrap": "^5.2.3"
+		"@wordpress/scripts": "^31.1.0"
 	},
 	"devDependencies": {
-		"@wordpress/scripts": "^26.15.0"
+		"@eslint/compat": "^2.0.0",
+		"@eslint/eslintrc": "^3.3.3",
+		"@wordpress/block-editor": "^15.9.0",
+		"@wordpress/components": "^30.9.0",
+		"@wordpress/compose": "^7.36.0",
+		"@wordpress/dom-ready": "^4.36.0",
+		"@wordpress/hooks": "^4.35.0",
+		"eslint": "^9.39.2",
+		"eslint-config-prettier": "^10.1.8",
+		"eslint-import-resolver-typescript": "^4.4.4",
+		"eslint-plugin-react-hooks": "^7.0.1",
+		"globals": "^16.5.0",
+		"stylelint": "^16.26.1",
+		"stylelint-config-standard-scss": "^16.0.0",
+		"stylelint-scss": "^6.13.0"
 	}
 }

@@ -1,0 +1,108 @@
+@use "../abstracts/fluid-type-utils" as fluid-type;
+@use "../abstracts/variables" as v;
+
+@font-face {
+	font-family: Mulish;
+	src: url("/assets/fonts/Mulish/Mulish-VariableFont_wght.ttf")
+		format("truetype");
+	font-weight: 100 900; /* Variable font weight range */
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: Mulish;
+	src: url("/assets/fonts/Mulish/Mulish-Italic-VariableFont_wght.ttf")
+		format("truetype");
+	font-weight: 100 900;
+	font-style: italic;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: Cormorant;
+	src: url("/assets/fonts/Cormorant/Cormorant-VariableFont_wght.ttf")
+		format("truetype");
+	font-weight: 100 900; /* Variable font weight range */
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: Cormorant;
+	src: url("/assets/fonts/Cormorant/Cormorant-Italic-VariableFont_wght.ttf")
+		format("truetype");
+	font-weight: 100 900;
+	font-style: italic;
+	font-display: swap;
+}
+
+:root {
+	@include fluid-type.generate-type-scale;
+	@include fluid-type.generate-type-scale(
+		perfect-fourth,
+		"fs-display",
+		fluid-type.$display-steps,
+		0
+	);
+}
+
+body {
+	--bs-body-font-size: var(--wp--preset--font-size--root);
+
+	text-wrap: pretty;
+	word-break: normal;
+}
+
+// HEADINGS
+
+$headings: (
+	1: "xxxl",
+	2: "xxl",
+	3: "xl",
+	4: "lg",
+	5: "md",
+	6: "sm",
+);
+
+/**
+* Reset Headings and utils to use WP sizes instead of bootstrap's
+*/
+@each $heading, $slug in $headings {
+	h#{$heading} {
+		font-size: var(--wp--preset--font-size--#{$slug});
+	}
+	.h#{$heading} {
+		text-wrap: pretty;
+		font-size: var(--wp--preset--font-size--#{$slug});
+		font-family: var(
+			--wp--preset--font-family--headings,
+			#{v.$font-headings}
+		);
+	}
+	.fs-#{$heading} {
+		font-size: var(--wp--preset--font-size--#{$slug}) !important;
+	}
+}
+
+/**
+* Reset Display Font Sizes to use clamp instead of Bootstrap's RFS
+*/
+@each $step in fluid-type.$display-steps {
+	.display-#{$step} {
+		font-size: var(--fs-display-#{$step}) !important;
+	}
+}
+
+small,
+.small {
+	font-size: var(--font-size-sm);
+}
+
+[class*="fs-"] > p {
+	font-size: inherit;
+}
+
+a {
+	transition: color var(--transition-standard);
+}

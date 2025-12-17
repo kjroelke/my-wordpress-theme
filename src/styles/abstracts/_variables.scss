@@ -1,0 +1,27 @@
+$transition-standard: 0.15s ease-in-out;
+
+/* ////////////
+// COLORS
+///////////// */
+
+$primary: rgb(60 28 18);
+$secondary: rgb(135 82 66);
+$custom-colors: (
+	"primary-light": rgb(116 60 24),
+	"secondary-light": rgb(209 188 181),
+	"muted-orange": rgb(193 128 98),
+	"sage": rgb(33 79 76),
+	"gray": rgb(90 88 92),
+	"black": black,
+	"white": white,
+);
+
+/* ////////////
+// TYPOGRAPHY
+///////////// */
+
+$font-headings: cormorant, serif;
+$font-body: mulish, "Helvetica Neue", "Noto Sans", "Liberation Sans", arial,
+	sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+	"Noto Color Emoji";
+$font-serif: adobe-garamond-pro, serif;
