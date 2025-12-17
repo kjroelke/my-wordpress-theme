@@ -52,27 +52,12 @@
 				{
 					"name": "Primary",
 					"slug": "primary",
-					"color": "rgb(60, 28, 18)"
+					"color": "#0071C6"
 				},
 				{
 					"name": "Gray",
 					"slug": "gray",
-					"color": "rgb(90, 88, 92)"
-				},
-				{
-					"name": "Primary Light",
-					"slug": "primary-light",
-					"color": "rgb(116, 60, 24)"
-				},
-				{
-					"name": "Secondary",
-					"slug": "secondary",
-					"color": "rgb(135, 82, 66)"
-				},
-				{
-					"name": "Secondary Light",
-					"slug": "secondary-light",
-					"color": "rgb(209, 188, 181)"
+					"color": "#666666"
 				},
 				{
 					"name": "White",
@@ -83,22 +68,6 @@
 					"name": "Black",
 					"slug": "black",
 					"color": "rgb(0, 0, 0)"
-				},
-				{
-					"name": "Sage",
-					"slug": "sage",
-					"color": "rgb(33, 79, 76)"
-				},
-				{
-					"name": "Muted Orange",
-					"slug": "muted-orange",
-					"color": "rgb(193, 128, 98)"
-				},
-
-				{
-					"name": "Drop Shadow",
-					"slug": "drop-shadow",
-					"color": "rgba(0, 0, 0, 0.35)"
 				}
 			]
 		},
@@ -270,24 +239,15 @@
 				"typography": {
 					"fontFamily": "var:preset|font-family|body",
 					"fontSize": "var:preset|font-size|root"
-				},
-				"color": {
-					"text": "var:preset|color|primary"
 				}
 			},
 			"core/list-item": {
 				"typography": {
 					"fontFamily": "var:preset|font-family|body",
 					"fontSize": "var:preset|font-size|root"
-				},
-				"color": {
-					"text": "var:preset|color|primary"
 				}
 			},
 			"core/paragraph": {
-				"color": {
-					"text": "var:preset|color|primary"
-				},
 				"typography": {
 					"fontFamily": "var:preset|font-family|body",
 					"fontSize": "var:preset|font-size|root"
@@ -336,7 +296,7 @@
 				},
 				"color": {
 					"background": "var:preset|color|primary",
-					"text": "var:preset|color|white"
+					"text": "var:preset|color|black"
 				},
 				"variations": {
 					"outline": {
@@ -383,23 +343,23 @@
 								"ref": "variations.rounded-shadow.border.radius"
 							}
 						},
-						"shadow": "20px 16px 0px var(--wp--preset--color--secondary-light)"
+						"shadow": "20px 16px 0px var(--wp--preset--color--black)"
 					}
 				}
 			},
 			"core/details": {
 				"color": {
-					"background": "var:preset|color|secondary-light",
-					"text": "var:preset|color|white"
+					"background": "var:preset|color|gray",
+					"text": "var:preset|color|primary"
 				},
 				"border": {
 					"radius": "10px",
 					"width": "2px",
-					"color": "var:preset|color|primary-light"
+					"color": "var:preset|color|gray"
 				},
 				"elements": {
 					"link": {
-						"color": { "text": "var:preset|color|white" }
+						"color": { "text": "var:preset|color|primary" }
 					}
 				},
 				"spacing": {

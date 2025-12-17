@@ -1,6 +1,39 @@
 :root {
-	--btn-hover-box-shadow: 2px 4px 10px 2px rgb(0 0 0 / 35%);
-	--btn-hover-translate-y: -4px;
-	--btn-hover-translate-x: 0px;
-	--transition-standard: var(--wp--custom--transition--standard);
+	color-scheme: light dark;
+
+	--newspack-theme-color-text-light: light-dark(rgb(81 81 81), #ccc);
+	--newspack-theme-color-primary-against-white: light-dark(#0071c6, #38a9ff);
+	--newspack-theme-color-text-main: light-dark(#111, #fefefe);
+}
+
+.grecaptcha-badge {
+	display: none !important;
+}
+
+body {
+	background: light-dark(white, black);
+}
+
+.site-title a,
+.site-title a:visited {
+	color: light-dark(
+		var(--newspack-theme-color-text-main),
+		var(--newspack-primary-color)
+	);
+}
+
+.entry-content a {
+	color: light-dark(
+		var(--newspack-theme-color-secondary-against-white),
+		#fefefe
+	);
+}
+
+.entry-content a:hover,
+.entry-content a:active,
+.entry-content a:focus {
+	color: light-dark(
+		var(--newspack-theme-color-secondary-against-white),
+		#acacac
+	);
 }
