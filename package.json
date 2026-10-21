@@ -16,7 +16,8 @@
 		"templates",
 		"vendor",
 		"functions.php",
-		"style.css"
+		"style.css",
+		"theme.json"
 	],
 	"scripts": {
 		"build": "wp-scripts build --config=webpack.config.mjs",
