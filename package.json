@@ -7,7 +7,7 @@
 	"browserslist": [
 		"extends @wordpress/browserslist-config"
 	],
-	"files":[
+	"files": [
 		"assets",
 		"dist",
 		"inc",
@@ -48,6 +48,6 @@
 		"core-js-pure@3.51.0": true
 	},
 	"dependencies": {
-		"@choctawnationofoklahoma/wp-flex-reverse-toggle": "^1.1.4"
+		"@choctawnationofoklahoma/wp-flex-reverse-toggle": "^2"
 	}
 }
