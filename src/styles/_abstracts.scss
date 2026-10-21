@@ -1,0 +1,27 @@
+// variables
+$wp-mobile-breakpoint: 48rem;
+
+// mixins
+@mixin interaction() {
+	&:hover,
+	&:active,
+	&:focus-visible {
+		@content;
+	}
+}
+
+// functions
+
+@function transition($properties...) {
+	$new-list: ();
+
+	@each $property in $properties {
+		$new-list: list.append(
+			$new-list,
+			#{$property} var(--wp--custom--transition--standard),
+			comma
+		);
+	}
+
+	@return $new-list;
+}
