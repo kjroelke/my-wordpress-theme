@@ -32,7 +32,7 @@ export default {
 		],
 	},
 	ignoreFiles: [
-		'wp-content/themes/choctaw-ranches-block-theme/src/styles/editor.scss',
+		'src/styles/editor.scss',
 	],
 	overrides: [
 		{
