@@ -7,6 +7,17 @@
 	"browserslist": [
 		"extends @wordpress/browserslist-config"
 	],
+	"files":[
+		"assets",
+		"dist",
+		"inc",
+		"parts",
+		"patterns",
+		"templates",
+		"vendor",
+		"functions.php",
+		"style.css"
+	],
 	"scripts": {
 		"build": "wp-scripts build --config=webpack.config.mjs",
 		"check-engines": "wp-scripts check-engines",

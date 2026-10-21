@@ -1,8 +1,8 @@
-# Project Overview
-
-The WordPress theme for my personal site.
-
 # Changelog
+
+## v3.0.0 - [October 21, 2026]
+
+- Full Block Theme
 
 ## v2.0.2
 
