@@ -1,16 +1,24 @@
 {
-	"name": "kjroelke/wp-theme",
+	"name": "kjroelke/kjr-wp-theme",
 	"description": "My WordPress theme",
 	"type": "project",
-	"autoload": {
-		"psr-4": {
-			"KJR\\": "wp-content/themes/mytheme/inc/theme"
-		}
-	},
 	"authors": [
 		{
 			"name": "kjroelke",
 			"email": "kj.roelke@gmail.com"
+		}
+	],
+	"autoload":{
+		"classmap": ["inc/"]
+	},
+	"repositories": [
+		{
+			"type": "composer",
+			"url": "https://wpackagist.org",
+			"only": [
+				"wpackagist-plugin/*",
+				"wpackagist-theme/*"
+			]
 		}
 	],
 	"config": {
@@ -20,8 +28,10 @@
 		}
 	},
 	"require-dev": {
-		"wp-coding-standards/wpcs": "^3.0",
-		"dealerdirect/phpcodesniffer-composer-installer": "^1.0",
-		"squizlabs/php_codesniffer": "^3.7"
+		"wp-coding-standards/wpcs": "*"
+	},
+	"scripts": {
+		"phpcs": "phpcs . --extensions=php --ignore=/dist/",
+		"phpcbf": "phpcbf . --extensions=php --ignore=/dist/"
 	}
 }

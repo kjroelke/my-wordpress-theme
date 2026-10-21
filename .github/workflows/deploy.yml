@@ -1,0 +1,37 @@
+name: Deploy to SiteGround
+on:
+    push:
+        branches: [stg, main]
+
+concurrency:
+    group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+    cancel-in-progress: true
+
+jobs:
+    deploy-prod:
+        name: Deploy to Production
+        if: github.ref == 'refs/heads/main'
+        uses: macrosbysara/shared-github-actions/.github/workflows/deploy-theme.yml@main
+        with:
+            REMOTE: "kjroelke.online" # Remote folder to deploy to
+            theme_name: "kjr-wp-theme"
+            with_autoload: true
+        secrets:
+            SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+            REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
+            REMOTE_USER: ${{ secrets.REMOTE_USER }}
+            REMOTE_PORT: ${{ secrets.REMOTE_PORT }}
+
+    deploy-stg:
+        name: Deploy to Staging
+        if: github.ref == 'refs/heads/stg'
+        uses: macrosbysara/shared-github-actions/.github/workflows/deploy-theme.yml@main
+        with:
+            REMOTE: staging2.kjroelke.online
+            theme_name: "kjr-wp-theme"
+            with_autoload: true
+        secrets:
+            SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+            REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
+            REMOTE_USER: ${{ secrets.REMOTE_USER }}
+            REMOTE_PORT: ${{ secrets.REMOTE_PORT }}
