@@ -17,7 +17,11 @@ jobs:
             theme_name: "kjr-wp-theme"
             flags: "-azr --delete --exclude=node_modules --exclude=vendor --exclude=src"
             with_autoload: true
-        secrets: inherit
+        secrets:
+            SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+            REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
+            REMOTE_USER: ${{ secrets.REMOTE_USER }}
+            REMOTE_PORT: ${{ secrets.REMOTE_PORT }}
 
     deploy-stg:
         name: Deploy to Staging
@@ -28,4 +32,8 @@ jobs:
             theme_name: "kjr-wp-theme"
             flags: "-azvr --delete --exclude=node_modules --exclude=vendor --exclude=src"
             with_autoload: true
-        secrets: inherit
+        secrets:
+            SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+            REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
+            REMOTE_USER: ${{ secrets.REMOTE_USER }}
+            REMOTE_PORT: ${{ secrets.REMOTE_PORT }}
