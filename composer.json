@@ -31,7 +31,7 @@
 		"wp-coding-standards/wpcs": "*"
 	},
 	"scripts": {
-		"phpcs": "phpcs  --extensions=php --ignore=/dist/",
-		"phpcbf": "phpcbf  --extensions=php --ignore=/dist/"
+		"phpcs": "phpcs . --extensions=php --ignore=/dist/",
+		"phpcbf": "phpcbf . --extensions=php --ignore=/dist/"
 	}
 }
