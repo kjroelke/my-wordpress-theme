@@ -14,11 +14,11 @@
 <div class="wp-block-group">
 	<!-- wp:group {"align":"wide","layout":{"type":"flex","flexWrap":"nowrap","justifyContent":"space-between"}} -->
 	<div class="wp-block-group alignwide" style="flex-direction:row">
-		<!-- wp:site-logo {"width":120,"shouldSyncIcon":true} /-->
+		<!-- wp:site-logo {"width":120,"shouldSyncIcon":false} /-->
 
-		<!-- wp:group {"layout":{"type":"default"}} -->
-		<div class="wp-block-group" style="min-width:120px">
-			<!-- wp:navigation {"ref":1316,"style":{"typography":{"textTransform":"uppercase","fontStyle":"normal","fontWeight":"400"}},"fontFamily":"subheadings","layout":{"type":"flex","justifyContent":"right"}} /-->
+		<!-- wp:group {"style":{"dimensions":{"minWidth":"280px"}},"layout":{"type":"default"}} -->
+		<div class="wp-block-group" style="min-width:280px">
+			<!-- wp:navigation {"ref":1408,"style":{"typography":{"textTransform":"uppercase","fontStyle":"normal","fontWeight":"400"}},"fontFamily":"subheadings","layout":{"type":"flex","justifyContent":"right"}} /-->
 		</div>
 		<!-- /wp:group -->
 	</div>

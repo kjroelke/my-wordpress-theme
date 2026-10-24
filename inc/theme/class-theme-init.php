@@ -91,21 +91,16 @@ class Theme_Init {
 		$gutenberg_handler->kjr_block_theme_support();
 		add_action( 'init', array( $gutenberg_handler, 'init_block_theme' ) );
 		add_action( 'enqueue_block_editor_assets', array( $gutenberg_handler, 'enqueue_block_editor_assets' ) );
-		add_filter( 'block_editor_settings_all', array( $gutenberg_handler, 'alter_gutenberg_ui' ), 10, 2 );
-		add_filter( 'allowed_block_types_all', array( $gutenberg_handler, 'restrict_block_types' ), 10, 2 );
-		add_filter( 'use_block_editor_for_post_type', array( $gutenberg_handler, 'handle_page_templates' ) );
 		add_filter( 'should_load_remote_block_patterns', '__return_false' );
+		$query_loop_post_registry = new Theme\Query_Loop_Post_Registry();
+		add_filter( 'query_loop_block_query_vars', array( $query_loop_post_registry, 'filter_query_vars' ), 10, 3 );
+		add_action( 'loop_end', array( $query_loop_post_registry, 'register_posts' ) );
 	}
 
 	/**
 	 * Adds scripts with the appropriate dependencies
 	 */
 	public function enqueue_frontend_assets() {
-		wp_add_inline_script(
-			'global',
-			'const cnoSiteData = ' . wp_json_encode( array( 'rootUrl' => home_url() ) ) . ';',
-			'before'
-		);
 
 		// style.css
 		wp_enqueue_style(
@@ -184,7 +179,6 @@ class Theme_Init {
 		$supports = array(
 			'comments',
 			'trackbacks',
-			'author',
 		);
 		foreach ( $supports as $support ) {
 			if ( post_type_supports( $post_type, $support ) ) {
@@ -211,7 +205,7 @@ class Theme_Init {
 	}
 
 	/**
-	 * Add resource hints for Typekit
+	 * Add resource hints
 	 *
 	 * @param array                                              $hints         The array of resource hints.
 	 * @param 'dns-prefetch'|'preconnect'|'prefetch'|'prerender' $relation_type The relation type the hints are for.
@@ -219,10 +213,7 @@ class Theme_Init {
 	 */
 	public function add_resource_hints( array $hints, string $relation_type ) {
 		if ( 'preconnect' === $relation_type ) {
-			$hints[] = array(
-				'href'        => 'https://use.typekit.net',
-				'crossorigin' => 'anonymous',
-			);
+			return $hints;
 		}
 		return $hints;
 	}
