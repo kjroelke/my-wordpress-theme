@@ -11,7 +11,7 @@
 	position: absolute;
 }
 
-$font-families: "heading", "subheadings", "body";
+$font-families: "heading", "body";
 
 @each $font-family in $font-families {
 	.font-#{$font-family} {
@@ -29,5 +29,42 @@ $font-weights: (
 @each $weight-name, $weight-value in $font-weights {
 	.fw-#{$weight-name} {
 		font-weight: $weight-value;
+	}
+}
+
+.heading-line-right {
+	display: inline-flex;
+	width: 100%;
+	align-items: center;
+	gap: 0.25rem;
+
+	&::after {
+		background-color: currentcolor;
+		content: "";
+		flex: 1 0 0.25rem;
+		height: 1px;
+	}
+}
+
+.border-between {
+	> *:not(:last-child) {
+		padding-bottom: 1.5rem;
+		border-bottom: 1px solid currentcolor;
+	}
+}
+
+.list-style-none {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+$orders: 1, 2, 3, 4;
+
+@each $order in $orders {
+	@media (width >= 768px) {
+		.desktop-order-#{$order} {
+			order: $order;
+		}
 	}
 }
