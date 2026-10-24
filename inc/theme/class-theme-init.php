@@ -95,6 +95,9 @@ class Theme_Init {
 		add_filter( 'allowed_block_types_all', array( $gutenberg_handler, 'restrict_block_types' ), 10, 2 );
 		add_filter( 'use_block_editor_for_post_type', array( $gutenberg_handler, 'handle_page_templates' ) );
 		add_filter( 'should_load_remote_block_patterns', '__return_false' );
+		$query_loop_post_registry = new Theme\Query_Loop_Post_Registry();
+		add_filter( 'query_loop_block_query_vars', array( $query_loop_post_registry, 'filter_query_vars' ), 10, 3 );
+		add_action( 'loop_end', array( $query_loop_post_registry, 'register_posts' ) );
 	}
 
 	/**
