@@ -2,14 +2,17 @@
 	"name": "kjroelke/kjr-wp-theme",
 	"description": "My WordPress theme",
 	"type": "project",
+	"version": "3.1.0",
 	"authors": [
 		{
 			"name": "kjroelke",
 			"email": "kj.roelke@gmail.com"
 		}
 	],
-	"autoload":{
-		"classmap": ["inc/"]
+	"autoload": {
+		"classmap": [
+			"inc/"
+		]
 	},
 	"repositories": [
 		{
